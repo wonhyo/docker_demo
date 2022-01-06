@@ -1,0 +1,5 @@
+*.log
+*.zip
+**/scripts
+.env
+*.sw*

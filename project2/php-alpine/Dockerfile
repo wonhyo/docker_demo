@@ -1,4 +1,4 @@
-FROM php:7-fpm-alpine
+FROM php:8-fpm-alpine
 ENV LD_LIBRARY_PATH /usr/lib/oracle/21/client64/lib
 ENV ORACLE_HOME /usr/lib/oracle/21/client64/lib
 ENV TNS_ADMIN /usr/lib/oracle/21/client64/lib/network/admin
@@ -23,8 +23,8 @@ RUN set -xe \
     && mv /tmp/${BASE_NAME}/sdk ${ORACLE_HOME} \
     && ln -sf /lib/libc.musl-x86_64.so.1 /lib/libresolv.so.2 \
     && ln -sf /lib/ld-musl-x86_64.so.1 /lib/ld-linux-x86-64.so.2 \ 
-    && echo "instantclient,${ORACLE_HOME}" | pecl install oci8-2.2.0 \
-    && pecl install memcache-4.0.5.2 \
+    && echo "instantclient,${ORACLE_HOME}" | pecl install oci8-3.2.1 \
+    && pecl install memcache-8.0 \
 # Install igbinary (memcached's deps) \
     && pecl install igbinary \
 # Install memcached \
